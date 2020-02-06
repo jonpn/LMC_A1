@@ -1,0 +1,73 @@
+entrypoint:
+INPUT
+STORE 99		// store contents of inbox in scratch space
+BRZ <comparison>	// if we got a "0", jump to comparison. Else, continue
+/* incrementing the index for user's values*/
+LOAD 80		
+ADD 81
+STORE 80
+
+store numbers:
+/* Is this necessary?
+LOAD 98
+ADD 80
+STORE <next next mailbox>*/
+LOAD 99
+i will be overwritten: DAT 0 --> STORE <value of index>	// index's mailbox can be hard-coded...
+
+BRA 00
+
+comparison:
+/* implement "bigger, biggest" idea */
+LOAD 82
+STORE 96
+
+LOAD 82
+ADD 81
+STORE 82
+
+
+LOAD 82
+STORE 95
+
+LOAD 82
+ADD 81
+STORE 82
+
+
+LOAD 96
+SUB 95
+BRP <96 was greater>
+LOAD 95
+STORE 94
+BRA <are we done here?>
+
+96 was greater: LOAD 96
+STORE 94
+BRA <are we done here?>
+
+are we done here?:
+LOAD 80
+SUB 82
+BRP <comparison>
+BRA <output>
+
+output:
+LOAD 94
+OUTPUT
+
+#51..x		-- storage space for user inputs
+(consider sanitising values too large and
+ensure that user can't enter too many values)
+
+
+#80 (DAT) 50	-- index (last of mailboxes holding user input)
+#81 (DAT) 1	-- incrementer
+#82 (DAT) 51	-- comparison's iterator, until index
+
+#94		-- comparison's larger number
+#95		-- comparison's second number
+#96		-- comparison's first number
+#97 (DAT) 500	-- hold "load" op code for overwriter
+#98 (DAT) 300	-- hold "store" op code for overwriter
+#99		-- scratch space for user input
