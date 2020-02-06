@@ -1,2 +1,2 @@
 # LMC_A1
-Assignment 1 - itec1000
+Assignment 1 - ITEC1000
