@@ -1,0 +1,37 @@
+Entrypoint
+INPUT       //input num into basket
+STORE 98     //store num
+BRZ <comparison> //if we get a zero branch to comparison, else continue with next line
+LOAD 80
+ADD 81----------------------------------------------------------
+STORE 80 --- stores current index-------------------------------
+random change
+----->storing all nums
+
+LOAD 99
+ADD 80
+STORE <next next mailbox>
+LOAD 98
+i will be overwritten: DAT 0 --> STORE <value of index>
+
+BRA 0
+
+comparison: - need a loop
+LOAD <soft-coded first number>     - load first number
+SUB <soft-coded next number>
+BRP 
+
+
+output:
+OUTPUT ->output 902 if first num is zero
+
+#51..x		-- storage space for user inputs
+
+
+#80 DAT 50	-- index
+DAT 0
+#81 DAT 1	-- incrementer
+
+#98		-- scratch space for user input
+#99 DAT 300	-- hold "store" op code for overwriter
+
