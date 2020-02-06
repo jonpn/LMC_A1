@@ -8,12 +8,11 @@ ADD 81
 STORE 80
 
 store numbers:
-/* Is this necessary?
 LOAD 98
 ADD 80
-STORE <next next mailbox>*/
+STORE <next next mailbox>
 LOAD 99
-i will be overwritten: DAT 0 --> STORE <value of index>	// index's mailbox can be hard-coded...
+i will be overwritten: DAT 0 --> STORE <value of index>
 
 BRA 00
 
